@@ -1,13 +1,15 @@
-apply plugin: 'com.vanniktech.maven.publish'
+//apply plugin: 'com.vanniktech.maven.publish'
 apply plugin: 'kotlin'
 
 dependencies {
     implementation project(':scarlet-core')
-    implementation rootProject.ext.kotlinStdlib
+    implementation(rootProject.ext.kotlinStdlib) {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-reflect"
+    }
 
     testImplementation project(':scarlet-test-utils')
     testImplementation rootProject.ext.junit
     testImplementation rootProject.ext.mockito
-    testImplementation rootProject.ext.kotlinReflect
+    //testImplementation rootProject.ext.kotlinReflect
     testImplementation rootProject.ext.assertJ
 }

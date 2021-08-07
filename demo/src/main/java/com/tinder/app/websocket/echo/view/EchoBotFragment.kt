@@ -123,7 +123,7 @@ class EchoBotFragment : Fragment() {
                     return
                 }
                 val photoPaths = mutableListOf<String>()
-                photoPaths.addAll(data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_MEDIA))
+                // TODO FIX NIELS data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_MEDIA)?.toCollection()?.let {photoPaths.addAll(it}
                 if (photoPaths.isEmpty()) {
                     return
                 }

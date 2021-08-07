@@ -10,18 +10,18 @@ buildscript {
     }
     dependencies {
         classpath 'com.vanniktech:gradle-maven-publish-plugin:0.8.0'
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 plugins {
-    id 'org.jlleitschuh.gradle.ktlint' version '4.1.0'
+   // id 'org.jlleitschuh.gradle.ktlint' version '4.1.0'
 }
 
-ktlint {
-    version = '0.29.0'
-}
+//ktlint {
+//    version = '0.29.0'
+//}
 
 allprojects {
     group = GROUP
@@ -43,3 +43,11 @@ subprojects { project ->
 }
 
 apply from: rootProject.file('dependencies.gradle')
+
+configurations {
+    all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-reflect:1.1.1"
+        }
+    }
+}
